@@ -1,6 +1,8 @@
 const input = document.getElementById('link-input')
 const linkForm = document.getElementById('link-form')
 const errorMessage = document.getElementById('error-message')
+const btn = document.getElementById('menu-btn')
+const menu = document.getElementById('menu')
 
 // Validate URL
 const isURLValid = (url) => {
@@ -24,4 +26,11 @@ const formSubmit = (e) => {
   }
 }
 
+const navToggle = () => {
+  btn.classList.toggle('open')
+  menu.classList.toggle('flex')
+  menu.classList.toggle('hidden')
+}
+
 linkForm.addEventListener('submit', formSubmit)
+btn.addEventListener('click', navToggle)
