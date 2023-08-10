@@ -1,8 +1,10 @@
 const tabs = document.querySelectorAll('.tab')
 const panels = document.querySelectorAll('.panel')
+const btn = document.querySelector('#menu-btn')
+const menu = document.querySelector('#menu')
+const logo = document.querySelector('#logo')
 
-tabs.forEach((tab) => tab.addEventListener('click', onTabClick))
-
+// Tab menu toggle
 function onTabClick(event) {
   tabs.forEach((tab) => {
     tab.children[0].classList.remove(
@@ -19,3 +21,20 @@ function onTabClick(event) {
   const classString = event.target.getAttribute('data-target')
   document.getElementById('panels').getElementsByClassName(classString)[0].classList.remove('hidden')
 }
+
+tabs.forEach((tab) => tab.addEventListener('click', onTabClick))
+
+// Hamburger menu toggle
+function navToggle() {
+  btn.classList.toggle('open')
+  menu.classList.toggle('flex')
+  menu.classList.toggle('hidden')
+
+  if (menu.classList.contains('flex')) {
+    logo.setAttribute('src', './images/logo-bookmark-footer.svg')
+  } else {
+    logo.setAttribute('src', './images/logo-bookmark.svg')
+  }
+}
+
+btn.addEventListener('click', navToggle)
